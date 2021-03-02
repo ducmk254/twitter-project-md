@@ -49,3 +49,17 @@ module.exports.login = async (req, res, next) => {
     return next(error);
   }
 };
+
+module.exports.getCurrentUser = async (req, res, next) => {
+  const data = { user: null };
+  try {
+    const user = await UserModel.findOne({ _id: req.user.userId });
+    data.user = { userName: user.name };
+    return res.status(200).json({
+      status: "sucess",
+      data,
+    });
+  } catch (error) {
+    return res.json(data);
+  }
+};

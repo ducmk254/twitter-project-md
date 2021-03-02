@@ -5,7 +5,7 @@ module.exports.errHandler = (err, req, res, next) => {
   if (err.code === 11000) {
     err.statusCode = 400;
     for (let i in err.keyValue) {
-      err.message = `${i} have to be unique`;
+      err.message = `${i} have to be unique. `;
     }
   }
 

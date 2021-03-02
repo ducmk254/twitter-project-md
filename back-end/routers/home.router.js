@@ -1,11 +1,18 @@
+const { userController } = require("../controllers/home.controller");
 const homeController = require("../controllers/home.controller");
+const { checkCurrentUser } = require("../middlewares/checkCurrentUser");
 const { verifyToken } = require("../middlewares/verifyToken");
 module.exports = (app) => {
+  // author route
+
   app
     .route("/api/v1/author/register")
     .post(homeController.userController.register);
   app.route("/api/v1/author/login").get(homeController.userController.login);
-
+  app
+    .route("/api/v1/author")
+    .get(checkCurrentUser, userController.getCurrentUser);
+  // Posts route
   app
     .route("/api/v1/posts")
     .get(homeController.postController.getAllPost)

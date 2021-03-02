@@ -21,6 +21,7 @@ module.exports.getAllPost = async (req, res, next) => {
       .find()
       .populate("author", "name createdAt updatedAt");
     // or .populate({path: "author", select:["name createdAt updatedAt"]});
+    // or .populate('author','name').select('name createdAt') lấy ra trong tên của author và lấy ra tên và thời gian tạo của posts
 
     res.status(200).json({
       status: "success",

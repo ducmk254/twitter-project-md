@@ -24,7 +24,10 @@ app.use(bodyParser.json());
 //router:
 router(app);
 
+// middleware xử lý khi có lỗi trong quá trình controller:
+// thường đặt ở vị trí dưới cùng của middleware
 app.use(errHandler);
+
 app.listen(port, () => {
   console.log(`Server is running on ${port} port`);
 });
