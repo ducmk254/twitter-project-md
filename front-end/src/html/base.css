@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* import gg font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap');
+
+html{
+    font-size: 62.5%;
+    font-family: "Montserrat",Arial, Helvetica, sans-serif;
+}
+
+:root{
+    --color-dark-blue: #202040;
+    --color-medium-blue: #404081;
+    --color-light-blue: #40bec7;
+    --color-light-red: #ff6363;
+    --color-light-grey: #eaeaea;
+    --fs-large: 2.5rem;
+    --fs-medium: 1.8rem;
+    --fs-small: 1.6rem;
+}
+
+body{
+    background-color: var(--color-dark-blue);
+    color: var(--color-light-grey);
+    font-size: var(--fs-small);
+}
+
+.wrapper{
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.btn{
+    align-self: flex-end;
+    padding: 1rem 3rem;
+    background-color: var(--color-dark-blue);
+    
+    box-shadow: var(--color-light-blue) 0px 3px 0 0;
+
+    font-size: var(--fs-medium);
+    font-family: inherit;
+    color: inherit;
+
+    cursor: pointer;
+
+    border-radius:3px;
+    border: 1px solid var(--color-light-grey);
+    transition: all 0.3s;
+}
+.btn:hover{
+    
+    background-color: var(--color-light-blue);
+    color: black;
+
+    box-shadow: var(--color-light-blue) 0 0 0 0;
+    transform: translateY(3px);
+
+}
