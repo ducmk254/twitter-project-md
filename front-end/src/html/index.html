@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="base.css">
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="form-section.css">
+    <link rel="stylesheet" href="post.css">
+    <link rel="stylesheet" href="author.css">
     <title>Twitter Project</title>
 </head>
 <body>
@@ -31,6 +33,56 @@
             <form class="form">
                 <textarea name="content" id="new-content" cols="30" rows="10" placeholder="What's happening ?"></textarea>
                 <button class="btn">Tweet</button>
+            </form>
+        </section>
+
+        <section class="post-section">
+            <div class="post-list">
+                <div class="post-item">
+                    <p class="post-item__content">Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                        Nesciunt, expedita! Itaque atque qui quam fugiat tenetur enim sint voluptate quasi vitae
+                         recusandae eos, hic odio, blanditiis, ut accusantium eum magni?
+                    </p>
+                    <div class="post-item__footer">
+                        <div class="post-item__infor">
+                            <span class="post-item__username">by MinhDuc</span>
+                            <span class="post-item__date">Date: 14/03/2021</span>
+                        </div>
+                        <ul class="post-item__change">
+                            <li class="post-item__change-action">Edit</li>
+                            <li class="post-item__change-action">Delete</li>
+                            <li class="post-item__change-action"><span>Are you sure?</span></li>
+                            <li class="post-item__change-action">yes</li>
+                            <li class="post-item__change-action">No</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="post-update">
+                    <textarea type="text" name="content" placeholder="What's happening ?" id="content" class="post-item__content">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt, expedita! Itaque atque qui quam fugiat tenetur enim sint voluptate quasi vitae recusandae eos, hic odio, blanditiis, ut accusantium eum magni?</textarea>
+                    <div class="post-item__footer">
+                        <button class="btn">Update</button>
+                        <button class="btn">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="author-container">
+            <form action="" class="author-form">
+                <h2>Enter Your Account</h2>
+                <div class="error-message">Error: Your Password is not Correct</div>
+                <input type="email" name="email" id="author-email" required placeholder="Email" />
+                <input type="password" name="password" id="author-password" required placeholder="Password"/>
+                <button class="btn" type="submit">Login</button>
+            </form>
+
+            <form action="" class="author-form">
+                <h2>Register New Account</h2>
+                <div class="error-message">Error: Your Password is not Correct</div>
+                <input type="text" name="name" id="name" required placeholder="Name" />
+                <input type="email" name="email" id="author-email" required placeholder="Email" />
+                <input type="password" name="password" id="author-password" required placeholder="Password"/>
+                <button class="btn" type="submit">Register</button>
             </form>
         </section>
     </div>
