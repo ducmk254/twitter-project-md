@@ -8,7 +8,7 @@ function PostUpdate(props) {
                         <button className="btn">Update</button>
                         <button className="btn">Cancel</button>
                     </div>
-                </div>
+        </div>
     );
 }
 

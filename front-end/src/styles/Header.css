@@ -21,6 +21,13 @@
     
     color: var(--color-light-blue);
 }
+.header .logo a{
+    text-decoration: none;
+    font-size: var(--fs-large);
+    font-family: inherit;
+    color: inherit;
+}
+
 .header .nav{
     width: 40%;
     

@@ -5,12 +5,10 @@ import Register from './Register';
 
 function Author(props) {
     return (
-        <div>
-            <section className="author-container">
-                <Login/>
-                <Register/>                
-            </section>
-        </div>
+        <section className="author-container">
+            <Login/>
+            <Register/>                
+        </section>
     );
 }
 

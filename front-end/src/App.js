@@ -1,16 +1,31 @@
-import Author from "./components/Author/Author";
 import Header from "./components/Header/Header";
-import NewTweet from "./components/NewTweet/NewTweet";
-import PostList from "./components/PostList/PostList";
+import Main from "./components/Main/Main";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Author from "./components/Author/Author";
+import Login from "./components/Author/Login";
+import Register from "./components/Author/Register";
 
 function App() {
   return (
-    <div className="wrapper">
-      <Header />
-      <NewTweet />
-      <PostList />
-      <Author />
-    </div>
+    <Router>
+      <div className="wrapper">
+        <Header />
+        <Switch>
+          <Route exact path="/">
+            <Main />
+          </Route>
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          <Route exact path="/register">
+            <Register />
+          </Route>
+          <Route exact path="*">
+            Page not found
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

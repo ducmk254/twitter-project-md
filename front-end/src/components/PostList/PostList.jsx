@@ -4,14 +4,12 @@ import PostItem from './PostItem';
 import PostUpdate from './PostUpdate';
 function PostList(props) {
     return (
-        <div>
             <section className="post-section">
             <div className="post-list">
                 <PostItem/>
                 <PostUpdate/>
             </div>
         </section>
-        </div>
     );
 }
 
