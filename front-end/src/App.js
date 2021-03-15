@@ -1,9 +1,16 @@
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 import Author from "./components/Author/Author";
 import Login from "./components/Author/Login";
 import Register from "./components/Author/Register";
+import NotFound from "./components/NotFound/NotFound";
+import Logout from "./components/Author/Logout";
 
 function App() {
   return (
@@ -20,8 +27,12 @@ function App() {
           <Route exact path="/register">
             <Register />
           </Route>
+          <Route exact path="/logout">
+            <Logout />
+            <Redirect to="/" />
+          </Route>
           <Route exact path="*">
-            Page not found
+            <NotFound />
           </Route>
         </Switch>
       </div>
