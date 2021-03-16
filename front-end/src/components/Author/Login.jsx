@@ -19,18 +19,26 @@ function Login(props) {
             
             e.preventDefault(); // khi nhấn submit thì page không bị reload khi nhấn submit
             const option = {
-                method:"post",
-                url:"/api/v1/author/login",
+                method:'post',
+                url:'http://localhost:5000/api/v1/author/login',
                 data:userInput
             }
             const res = await axios(option); 
+            
             const {token,userName} = res.data.data;
-            console.log(res.data.data);
             localStorage.setItem("token",token);
             dispatch({type:"CURRENT_USER",playload:{userName:userName}});
             history.push("/"); // điều hướng người dùng tới route mới là /
+
+
+            // const option ={
+            //     methor:"get",
+            //     url:"http://localhost:5000/api/v1/posts"
+            // }
+            // const res = await axios(option);
+            // console.log(res.data);
         } catch (error) {
-            setErrorMessage(error.message);
+            setErrorMessage(error.response.data.message);
         }
 
     }
