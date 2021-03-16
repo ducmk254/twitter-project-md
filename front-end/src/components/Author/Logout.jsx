@@ -1,6 +1,5 @@
 import React from 'react';
-import Main from '../Main/Main';
-
+import "../../styles/Author.css";
 
 function Logout(props) {
     return (

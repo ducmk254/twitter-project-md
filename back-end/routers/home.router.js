@@ -8,10 +8,11 @@ module.exports = (app) => {
   app
     .route("/api/v1/author/register")
     .post(homeController.userController.register);
-  app.route("/api/v1/author/login").get(homeController.userController.login);
+  app.route("/api/v1/author/login").post(homeController.userController.login);
   app
     .route("/api/v1/author")
     .get(checkCurrentUser, userController.getCurrentUser);
+
   // Posts route
   app
     .route("/api/v1/posts")
