@@ -36,11 +36,13 @@
 }
 .header .nav-main{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 .header .nav-main__item{
     list-style: none;
-    
+}
+.header .nav-main__item:first-child{
+    padding: 0 2rem 0 0;
 }
 .header .user-name{
     color: var(--color-light-blue);
