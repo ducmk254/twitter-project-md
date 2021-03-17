@@ -9,7 +9,7 @@ module.exports.register = async (req, res, next) => {
     const user = await homeModel.userModel.create(req.body);
 
     // tao token
-    const token = jwt.sign({ userId: user_id }, process.env.APP_SECRET);
+    const token = jwt.sign({ userId: user._id }, process.env.APP_SECRET);
 
     res.status(200).json({
       status: "success",

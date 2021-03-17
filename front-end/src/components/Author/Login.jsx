@@ -27,20 +27,12 @@ function Login(props) {
             
             const {token,userName} = res.data.data;
             localStorage.setItem("token",token);
-            dispatch({type:"CURRENT_USER",playload:{userName:userName}});
+            dispatch({type:"CURRENT_USER",payload:{userName:userName}});
             history.push("/"); // điều hướng người dùng tới route mới là /
-
-
-            // const option ={
-            //     methor:"get",
-            //     url:"http://localhost:5000/api/v1/posts"
-            // }
-            // const res = await axios(option);
-            // console.log(res.data);
         } catch (error) {
+            
             setErrorMessage(error.response.data.message);
         }
-
     }
     return (
         <section className="author-container">
@@ -53,7 +45,6 @@ function Login(props) {
                 <button className="btn" type="submit"  >Login</button>
             </form>
         </section>
-        
     );
 }
 
