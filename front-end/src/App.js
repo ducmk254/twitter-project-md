@@ -13,11 +13,40 @@ import Logout from "./components/Author/Logout";
 
 import AppReducer from "./AppReducer/AppReducer";
 import AppContext from "./components/AppContext/AppContext";
-import { useReducer } from "react";
+import { useCallback, useEffect, useReducer } from "react";
+import config from "./config/config";
+import axios from "axios";
+
 function App() {
   const initialState = { user: null, posts: [] };
   const [state, dispatch] = useReducer(AppReducer, initialState); // userReducer(AppReducer,{user:null,posts:[]})
-
+  const checkCurrentUser = useCallback(async () => {
+    try {
+      const token = localStorage.getItem("token");
+      if(!token) return;
+      const option = {
+        ...config,
+        url: "/api/v1/author",
+        method: "get",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      // console.log("options", option);
+      const res = await axios(option);
+      // console.log("App.js có res: ", res.data.data);
+      if (res.data.data.user) {
+        // console.log("--------");
+        const { userName } = res.data.data.user;
+        dispatch({ type: "CURRENT_USER", payload: { userName } });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }, [dispatch]);
+  useEffect(() => {
+    checkCurrentUser();
+  }, [checkCurrentUser]);
   return (
     <Router>
       <AppContext.Provider value={{ state, dispatch }}>

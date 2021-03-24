@@ -6,6 +6,7 @@ module.exports.createOnePost = async (req, res, next) => {
     const { userId } = req.user;
 
     const post = await postModel.create({ ...req.body, author: userId });
+    console.log("tao thanh cong bai post");
     res.status(200).json({
       status: "sucess",
       data: { post },
@@ -19,7 +20,7 @@ module.exports.getAllPost = async (req, res, next) => {
   try {
     const posts = await postModel
       .find()
-      .populate("author", "name createdAt updatedAt");
+      .populate("author", "name").limit(5).sort({_id:-1});
     // or .populate({path: "author", select:["name createdAt updatedAt"]});
     // or .populate('author','name').select('name createdAt') lấy ra trong tên của author và lấy ra tên và thời gian tạo của posts
 

@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import "../../styles/Author.css";
 import AppContect from "../AppContext/AppContext";
 import axios from 'axios';
+import config from "../../config/config";
 import { useHistory } from 'react-router';
 function Register(props) {
     const {dispatch} = useContext(AppContect);
@@ -15,11 +16,11 @@ function Register(props) {
         try {
             e.preventDefault();
         const option ={
+            ...config,
             method:"post",
-            url:"http://localhost:5000/api/v1/author/register",
+            url:"/api/v1/author/register",
             data:userInput
         }
-        
         const res = await axios(option);
         const {token,userName} = res.data.data;
         
@@ -34,7 +35,10 @@ function Register(props) {
         <section className="author-container">
             <form method="post" className="author-form" onSubmit={handleOnSubmit}>
                     <h2>Register New Account</h2>
-                    {errorMessage&&( <div className="error-message">Error: {errorMessage}</div>) }
+                    {  
+                        Array.isArray(errorMessage)?(errorMessage.map((err)=>(errorMessage&&(<div className="error-message">Error: {err}</div>))))
+                                                   :(errorMessage&&(<div className="error-message">Error: {errorMessage}</div>))
+                    }
                     <input type="text" name="name" id="name" required placeholder="Name" value={userInput.name} onChange={handleInput}/>
                     <input type="email" name="email" id="author-email" required placeholder="Email" value={userInput.email} onChange={handleInput} />
                     <input type="password" name="password" id="author-password" required placeholder="Password" value={userInput.password} onChange={handleInput} />

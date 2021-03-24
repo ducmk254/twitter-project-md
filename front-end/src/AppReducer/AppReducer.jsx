@@ -5,7 +5,7 @@ export default function reducer(state,action){
         case "GET_ALL_POSTS":
             return {...state,posts:action.payload}
         case "CREATE_ONE_POST":
-            return {...state,posts:[...state.posts,action.payload]};
+            return {...state,posts:[action.payload,...state.posts]};
         case "UPDATE_ONE_POST":
             return {
                 ...state,

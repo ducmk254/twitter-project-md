@@ -12,12 +12,17 @@
     
 }
 .post-item{
-    margin: 0 auto;
+    margin: 1rem auto;
     width: 100%;
+    border: 1px dotted white;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+
 }
 .post-item__content{
     width: 100%;

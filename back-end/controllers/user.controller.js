@@ -33,7 +33,7 @@ module.exports.login = async (req, res, next) => {
     const validatePass = bcrypt.compareSync(req.body.password, user.password);
     if (validatePass) {
       const token = jwt.sign({ userId: user._id }, process.env.APP_SECRET);
-      console.log(token);
+      // console.log(token);
 
       res.status(200).json({
         status: "success",
