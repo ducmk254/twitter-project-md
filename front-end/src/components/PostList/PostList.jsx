@@ -15,7 +15,8 @@ function PostList(props) {
             }
             const res = await axios(options);
             // console.log(res.data.data.posts[1].author.name);
-            dispatch({type:"GET_ALL_POSTS",payload:res.data.data.posts})
+            dispatch({type:"GET_ALL_POSTS",payload:res.data.data.posts});
+            
         } catch (error) {
             console.log(error);
         }
@@ -25,11 +26,19 @@ function PostList(props) {
         getPostList();
     },[getPostList]);
 
+    const newPosts = state.posts.map((post)=>{
+        if(state.user){
+            return state.user.userName === post.author.name ? {...post,isEditable:true} : post;
+        }else{
+            return {...post,isEditable:false}
+        }
+        }
+    );
+    // console.log(newPosts);
     return (
         <section className="post-section">
             <div className="post-list">
-                {state.posts.map(post=><PostItem key={post._id} post={post} user={state.user}/>)}
-                {/* <PostUpdate/> */}
+                {newPosts.map(post=>{return <PostItem key={post._id} post={post} />})}
             </div>
         </section>
     );

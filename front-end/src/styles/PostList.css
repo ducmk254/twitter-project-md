@@ -75,6 +75,10 @@
 
 .post-item__change-action>span{
     color: var(--color-light-red);
+    text-decoration: none;
+}
+.item-action{
+    text-decoration: none;
 }
 
 .post-update{

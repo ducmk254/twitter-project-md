@@ -10,7 +10,7 @@ export default function reducer(state,action){
             return {
                 ...state,
                 posts: state.posts.map(post=>
-                    post._id === action.payload._id ? {...post,...action.payload} : post)
+                    post._id === action.payload._id ? {...post,...action.payload} : post) //payload:post
             };
         case "DELETE_ONE_POST":
             return {

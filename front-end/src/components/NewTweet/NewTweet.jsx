@@ -2,12 +2,10 @@ import React, { useContext ,useState} from 'react';
 import "../../styles/NewTweet.css";
 import AppContext from "../AppContext/AppContext";
 import axios from 'axios';
-import { useHistory } from 'react-router';
 
 function NewTweet(props) {
     const {state,dispatch} = useContext(AppContext);
     const [inputText,setInputText] = useState("");
-    const history = useHistory();
 
 
     const handleInput = (e)=>{
@@ -24,15 +22,15 @@ function NewTweet(props) {
                 method:"post",
                 url:"/api/v1/posts",
                 headers: {
-                    Authorization: `Bearer ${token}`,
+                    Authorization: `Bearer ${token}`, // gui token len API de check xem co dang login ko ?
                   },
                 data:{content:inputText}
             }
             // console.log(option);
             const res = await axios(option);
-            dispatch({type:"CREATE_ONE_POST",payload:res.data.data.post}); // tra ve cai gi thi vut vao payload
+            const {post} = res.data.data;
+            dispatch({type:"CREATE_ONE_POST",payload:post}); // tra ve cai gi thi vut vao payload
             setInputText("");
-            
         } catch (error) {
             console.log(error);
         }
